@@ -56,34 +56,5 @@ public class BeboerDAO {
         }
         return -1;
     }
-    
-    public static Beboer get(int id) {
-        try {
-            conn = DBTool.getInstance();
-            Statement s = conn.createStatement();
-            
-            ResultSet rs = s.executeQuery("SELECT * FROM beboer WHERE idBeboer=" + id + ";");
-            rs.next();
-            
-            String firstname = rs.getString("firstname");
-            String lastname = rs.getString("lastname");
-            String address = rs.getString("address");
-            String phone = rs.getString("phone");
-            String email = rs.getString("email");
-            String role = rs.getString("role");
-            
-            Beboer b = new Beboer(firstname, lastname, address, phone, email, role);
-            return b;
-        } catch (SQLException ex) {
-            Logger.getLogger(BeboerDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                conn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(BeboerDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return null;
-    }
 
 }

@@ -73,7 +73,7 @@ public class TestBeboer {
     public void testGetBeboer() {
         System.out.println("TestGetBeboer");
         
-        Beboer bResult = beboerRegister.get(b.getId());
+        Beboer bResult = beboerRegister.getBeboer(b.getId());
         
         assertEquals(b, bResult);
     }
