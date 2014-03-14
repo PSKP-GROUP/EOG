@@ -12,7 +12,14 @@ package eog;
 public class EOG {
 
     private BeboerRegister bRegister;
+    private OpgaveRegister oRegister;
+    
+    private BeboerHandler bHandler;
+    private OpgaveHandler oHandler;
+    
     private OpretBeboerGUI obGUI;
+    private OpretOpgaveGUI ooGUI;
+    private MenuGUI menuGUI;
 
     public EOG() {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -36,8 +43,16 @@ public class EOG {
             java.util.logging.Logger.getLogger(OpretBeboerGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
         bRegister = new BeboerRegister();
-        obGUI = new OpretBeboerGUI(bRegister);
+        oRegister = new OpgaveRegister();
+        
+        bHandler = new BeboerHandler(bRegister);
+        oHandler = new OpgaveHandler(oRegister);
+        
+        obGUI = new OpretBeboerGUI(bHandler);
+        ooGUI = new OpretOpgaveGUI(oHandler);
+        menuGUI = new MenuGUI(obGUI, ooGUI);
     }
 
     /**
@@ -45,7 +60,7 @@ public class EOG {
      */
     public static void main(String[] args) {
         EOG eog = new EOG();
-        eog.obGUI.setVisible(true);
+        eog.menuGUI.setVisible(true);
     }
 
 }

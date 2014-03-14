@@ -12,14 +12,14 @@ package eog;
  */
 public class OpretBeboerGUI extends javax.swing.JFrame {
 
-    private BeboerRegister bRegister;
+    private BeboerHandler bHandler;
     
     /**
      * Creates new form OpretBeboerGUI
      */
-    public OpretBeboerGUI(BeboerRegister bRegister) {
+    public OpretBeboerGUI(BeboerHandler bHandler) {
         initComponents();
-        this.bRegister = bRegister;
+        this.bHandler = bHandler;
     }
 
     /**
@@ -46,7 +46,7 @@ public class OpretBeboerGUI extends javax.swing.JFrame {
         role_TextField = new javax.swing.JTextField();
         create_Button = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jLabel1.setText("Fornavn:");
@@ -154,9 +154,9 @@ public class OpretBeboerGUI extends javax.swing.JFrame {
         if(firstname.isEmpty() || lastname.isEmpty() || address.isEmpty() || phone.isEmpty() || email.isEmpty() || role.isEmpty()) {
             System.out.println("UDFYLD ALLE FELTER");
         } else {
-            bRegister.createBeboer(firstname, lastname, address, phone, email, role);
+            bHandler.createBeboer(firstname, lastname, address, phone, email, role);
             System.out.println("DONE");
-            System.exit(0);
+            dispose();
         }
     }//GEN-LAST:event_create_ButtonActionPerformed
 

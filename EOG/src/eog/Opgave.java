@@ -12,59 +12,57 @@ package eog;
  */
 public class Opgave {
     
-    private int iD;
-    private String titel;
-    private String beskrivelse;
-    private String datoForOprettelse;
-    private String tidsfrist;
+    private int id;
+    private String title;
+    private String description;
+    private String dateForTask;
+    private String deadlineTime;
 
-    public Opgave(String titel, String beskrivelse, String datoForOprettelse, String tidsfrist) {
-        this.titel = titel;
-        this.beskrivelse = beskrivelse;
-        this.datoForOprettelse = datoForOprettelse;
-        this.tidsfrist = tidsfrist;
+    public Opgave(String title, String description, String dateForTask, String deadlineTime) {
+        this.title = title;
+        this.description = description;
+        this.dateForTask = dateForTask;
+        this.deadlineTime = deadlineTime;
     }
 
-    public int getiD() {
-        return iD;
+    public int getId() {
+        return id;
     }
 
-    public void setiD(int iD) {
-        this.iD = iD;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getTitel() {
-        return titel;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitel(String titel) {
-        this.titel = titel;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getBeskrivelse() {
-        return beskrivelse;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBeskrivelse(String beskrivelse) {
-        this.beskrivelse = beskrivelse;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getDatoForOprettelse() {
-        return datoForOprettelse;
+    public String getDateForTask() {
+        return dateForTask;
     }
 
-    public void setDatoForOpgave(String datoForOpgave) {
-        this.datoForOprettelse = datoForOpgave;
+    public void setDateForTask(String dateForTask) {
+        this.dateForTask = dateForTask;
     }
 
-    public String getTidsfrist() {
-        return tidsfrist;
+    public String getDeadlineTime() {
+        return deadlineTime;
     }
 
-    public void setTidsfrist(String tidsfrist) {
-        this.tidsfrist = tidsfrist;
+    public void setDeadlineTime(String deadlineTime) {
+        this.deadlineTime = deadlineTime;
     }
-    
-    
-    
+
 }

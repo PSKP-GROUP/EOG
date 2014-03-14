@@ -19,8 +19,8 @@ import static org.junit.Assert.*;
  */
 public class OpgaveTest {
     
-    private Opgave opgave;
-    private OpgaveRegister opgaveRegister;
+    private static Opgave opgave;
+    private static OpgaveRegister opgaveRegister;
     
     public OpgaveTest() {
     }
@@ -50,7 +50,7 @@ public class OpgaveTest {
         String tidsfrist = "14/09/1991";
         
         opgave = opgaveRegister.createOpgave(titel, beskrivelse, datoForOprettelse, tidsfrist);
-        Opgave result = opgaveRegister.getOpgave(opgave.getID);
+        Opgave result = opgaveRegister.getOpgave(opgave.getId());
         assertEquals(opgave, result);
     }
     

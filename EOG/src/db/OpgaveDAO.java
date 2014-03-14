@@ -6,7 +6,6 @@
 
 package db;
 
-import eog.Beboer;
 import eog.Opgave;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -31,13 +30,13 @@ public class OpgaveDAO {
             conn = DBTool.getInstance();
             Statement s = conn.createStatement();
             
-            String titel = opgave.getTitel();
-            String beskrivelse = opgave.getBeskrivelse();
-            String datoForOprettelse = opgave.getDatoForOprettelse();
-            String tidsfrist = opgave.getTidsfrist();
+            String title = opgave.getTitle();
+            String description = opgave.getDescription();
+            String dateForTask = opgave.getDateForTask();
+            String deadlineTime = opgave.getDeadlineTime();
             
-            String sql = "INSERT INTO beboer (titel, beskrivelse, datoForOprettelse, tidsfrist)"
-                    + "VALUES('"+titel+"', '"+beskrivelse+"', '"+datoForOprettelse+"', '"+tidsfrist+"');";
+            String sql = "INSERT INTO opgave (title, description, datefortask, deadlinetime)"
+                    + "VALUES('"+title+"', '"+description+"', '"+dateForTask+"', '"+deadlineTime+"');";
             s.execute(sql);
             ResultSet rs = s.executeQuery("SELECT LAST_INSERT_ID();");
             rs.next();
