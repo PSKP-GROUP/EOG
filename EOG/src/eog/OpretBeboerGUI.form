@@ -113,22 +113,22 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Firstname:"/>
+            <Property name="text" type="java.lang.String" value="Fornavn:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Lastname:"/>
+            <Property name="text" type="java.lang.String" value="Efternavn:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Address:"/>
+            <Property name="text" type="java.lang.String" value="Adress:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Phone:"/>
+            <Property name="text" type="java.lang.String" value="Telefon:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -138,7 +138,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Role:"/>
+            <Property name="text" type="java.lang.String" value="Rolle:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="firstname_TextField">

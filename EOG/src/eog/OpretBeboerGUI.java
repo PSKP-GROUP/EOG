@@ -49,17 +49,17 @@ public class OpretBeboerGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setText("Firstname:");
+        jLabel1.setText("Fornavn:");
 
-        jLabel2.setText("Lastname:");
+        jLabel2.setText("Efternavn:");
 
-        jLabel3.setText("Address:");
+        jLabel3.setText("Adress:");
 
-        jLabel4.setText("Phone:");
+        jLabel4.setText("Telefon:");
 
         jLabel5.setText("Email:");
 
-        jLabel6.setText("Role:");
+        jLabel6.setText("Rolle:");
 
         create_Button.setText("Opret beboer");
         create_Button.addActionListener(new java.awt.event.ActionListener() {
