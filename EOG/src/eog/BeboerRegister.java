@@ -24,7 +24,7 @@ public class BeboerRegister {
     
     public Beboer createBeboer(String firstname, String lastname, String address, String phone, String email, String role) {
         Beboer b = new Beboer(firstname, lastname, address, phone, email, role);
-        insertBeboer(b);
+//        insertBeboer(b);
         return b;
     }
     

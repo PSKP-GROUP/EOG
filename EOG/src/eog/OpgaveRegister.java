@@ -24,7 +24,7 @@ public class OpgaveRegister {
     
     public Opgave createOpgave(String title, String description, String dateForTask, String deadlineTime){
         Opgave opgave = new Opgave(title, description, dateForTask, deadlineTime);
-        insert(opgave);
+//        insert(opgave);
         return opgave;
     }
     
