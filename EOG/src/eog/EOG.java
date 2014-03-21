@@ -60,6 +60,8 @@ public class EOG {
      */
     public static void main(String[] args) {
         EOG eog = new EOG();
+        eog.oRegister.createOpgave("bæ", "bæ", "bæ", "bæ");
+        eog.oRegister.setBeboer(5, null);
         eog.menuGUI.setVisible(true);
     }
 

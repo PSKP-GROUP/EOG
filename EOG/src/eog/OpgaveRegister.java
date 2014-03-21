@@ -24,17 +24,10 @@ public class OpgaveRegister {
     
     public Opgave createOpgave(String title, String description, String dateForTask, String deadlineTime){
         Opgave opgave = new Opgave(title, description, dateForTask, deadlineTime);
-//        insert(opgave);
+        insert(opgave);
         return opgave;
     }
-    
-    public Opgave insert(Opgave opgave){
-        int id = OpgaveDAO.insert(opgave);
-        opgave.setId(id);
-        opgaver.add(opgave);
-        return opgave;
-    }
-    
+
     public Opgave getOpgave(int id) {
         Iterator<Opgave> i = opgaver.iterator();
         
@@ -47,7 +40,20 @@ public class OpgaveRegister {
         return null;
     }
     
-    public void update() {
-        
+    public void setBeboer(int id, Beboer beboer) {
+        Opgave opgave = getOpgave(id);
+        opgave.setBeboer(beboer);
+        update(opgave);
+    }
+    
+    public Opgave insert(Opgave opgave){
+        int id = OpgaveDAO.insert(opgave);
+        opgave.setId(id);
+        opgaver.add(opgave);
+        return opgave;
+    }
+    
+    public void update(Opgave opgave) {
+        OpgaveDAO.update(opgave);
     }
 }
