@@ -85,6 +85,9 @@ public class Beboer {
         this.id = id;
     }
     
-    
+    @Override
+    public String toString() {
+        return firstname + " " + lastname;
+    }
     
 }

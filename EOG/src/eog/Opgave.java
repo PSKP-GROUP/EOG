@@ -17,7 +17,7 @@ public class Opgave {
     private String description;
     private String dateForTask;
     private String deadlineTime;
-    private Beboer beboer;
+    private int idBeboer;
 
     public Opgave(String title, String description, String dateForTask, String deadlineTime) {
         this.title = title;
@@ -66,12 +66,17 @@ public class Opgave {
         this.deadlineTime = deadlineTime;
     }
 
-    public Beboer getBeboer() {
-        return beboer;
+    public int getIdBeboer() {
+        return idBeboer;
     }
 
-    public void setBeboer(Beboer beboer) {
-        this.beboer = beboer;
+    public void setIdBeboer(int idBeboer) {
+        this.idBeboer = idBeboer;
+    }
+
+    @Override
+    public String toString() {
+        return title;
     }
 
 }

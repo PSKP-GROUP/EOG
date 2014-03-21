@@ -5,11 +5,13 @@
  */
 package db;
 
+import eog.Beboer;
 import eog.Opgave;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,10 +35,7 @@ public class OpgaveDAO {
             String description = opgave.getDescription();
             String dateForTask = opgave.getDateForTask();
             String deadlineTime = opgave.getDeadlineTime();
-            int idBeboer = 0;
-            if(opgave.getBeboer() != null) {
-                idBeboer = opgave.getBeboer().getId();
-            }
+            int idBeboer = opgave.getIdBeboer();
 
             String sql = "INSERT INTO opgave (title, description, datefortask, deadlinetime, idbeboer)"
                     + "VALUES('" + title + "', '" + description + "', '" + dateForTask + "', '" + deadlineTime + "', "+idBeboer+");";
@@ -67,10 +66,7 @@ public class OpgaveDAO {
             String description = opgave.getDescription();
             String dateForTask = opgave.getDateForTask();
             String deadlineTime = opgave.getDeadlineTime();
-            int idBeboer = 0;
-            if(opgave.getBeboer() != null) {
-                idBeboer = opgave.getBeboer().getId();
-            }
+            int idBeboer = opgave.getIdBeboer();
             
             String sql = "UPDATE opgave SET title='"+title+"', "
                     + "description='"+description+"', datefortask='"+dateForTask+"', "
@@ -85,6 +81,43 @@ public class OpgaveDAO {
                 Logger.getLogger(OpgaveDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public static ArrayList<Opgave> getAll() {
+        ArrayList<Opgave> opgaver = new ArrayList<>();
+        
+        try {
+            conn = DBTool.getInstance();
+            Statement s = conn.createStatement();
+            
+            String sql = "SELECT * FROM opgave;";
+            ResultSet rs = s.executeQuery(sql);
+            
+            while(rs.next()) {
+                int id = rs.getInt("idopgave");
+                String title = rs.getString("title");
+                String description = rs.getString("description");
+                String dateForTask = rs.getString("datefortask");
+                String deadlineTime = rs.getString("deadlinetime");
+                int idBeboer = rs.getInt("idbeboer");
+                
+                Opgave o = new Opgave(title, description, dateForTask, deadlineTime);
+                o.setId(id);
+                o.setIdBeboer(idBeboer);
+                opgaver.add(o);
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(OpgaveDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(OpgaveDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return opgaver;
     }
 
 }

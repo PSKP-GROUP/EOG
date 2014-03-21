@@ -6,6 +6,8 @@
 
 package eog;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Patrick
@@ -25,5 +27,11 @@ public class BeboerHandler {
     public Beboer getBeboer(int id) {
         return beboerRegister.getBeboer(id);
     }
+    
+    public ArrayList<Beboer> getBeboere() {
+        return beboerRegister.getBeboere();
+    }
+    
+    
     
 }

@@ -40,9 +40,9 @@ public class OpgaveRegister {
         return null;
     }
     
-    public void setBeboer(int id, Beboer beboer) {
+    public void setBeboer(int id, int idBeboer) {
         Opgave opgave = getOpgave(id);
-        opgave.setBeboer(beboer);
+        opgave.setIdBeboer(idBeboer);
         update(opgave);
     }
     
@@ -55,5 +55,28 @@ public class OpgaveRegister {
     
     public void update(Opgave opgave) {
         OpgaveDAO.update(opgave);
+    }
+    
+    public void loadDB() {
+        opgaver = OpgaveDAO.getAll();
+    }
+    
+    public ArrayList<Opgave> getAvailableOpgaver() {
+        ArrayList<Opgave> al = new ArrayList<>();
+        
+        Iterator<Opgave> i = opgaver.iterator();
+        
+        while(i.hasNext()) {
+            Opgave o = i.next();
+            if(o.getIdBeboer() == 0) {
+                al.add(o);
+            }
+        }
+        
+        return al;
+    }
+    
+    public ArrayList<Opgave> getOpgaver() {
+        return opgaver;
     }
 }

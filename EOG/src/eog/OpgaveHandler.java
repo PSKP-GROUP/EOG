@@ -6,6 +6,8 @@
 
 package eog;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Patrick
@@ -24,6 +26,18 @@ public class OpgaveHandler {
     
     public Opgave getOpgave(int id) {
         return opgaveRegister.getOpgave(id);
+    }
+    
+    public void setBeboer(int id, int idBeboer) {
+        opgaveRegister.setBeboer(id, idBeboer);
+    }
+    
+    public ArrayList<Opgave> getAvailableOpgaver() {
+        return opgaveRegister.getAvailableOpgaver();
+    }
+    
+    public ArrayList<Opgave> getOpgaver() {
+        return opgaveRegister.getOpgaver();
     }
     
 }

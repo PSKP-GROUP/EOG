@@ -46,4 +46,12 @@ public class BeboerRegister {
         return null;
     }
     
+    public void loadDB() {
+        beboere = BeboerDAO.getAll();
+    }
+    
+    public ArrayList<Beboer> getBeboere() {
+        return beboere;
+    }
+    
 }

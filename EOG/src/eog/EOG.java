@@ -17,6 +17,8 @@ public class EOG {
     private BeboerHandler bHandler;
     private OpgaveHandler oHandler;
     
+    private OpgaveViewGUI ovGUI;
+    private TildelOpgaveGUI toGUI;
     private OpretBeboerGUI obGUI;
     private OpretOpgaveGUI ooGUI;
     private MenuGUI menuGUI;
@@ -47,12 +49,17 @@ public class EOG {
         bRegister = new BeboerRegister();
         oRegister = new OpgaveRegister();
         
+        bRegister.loadDB();
+        oRegister.loadDB();
+        
         bHandler = new BeboerHandler(bRegister);
         oHandler = new OpgaveHandler(oRegister);
         
+        ovGUI = new OpgaveViewGUI(oHandler, bHandler);
+        toGUI = new TildelOpgaveGUI(oHandler, bHandler);
         obGUI = new OpretBeboerGUI(bHandler);
         ooGUI = new OpretOpgaveGUI(oHandler);
-        menuGUI = new MenuGUI(obGUI, ooGUI);
+        menuGUI = new MenuGUI(obGUI, ooGUI, toGUI, ovGUI);
     }
 
     /**
@@ -60,8 +67,10 @@ public class EOG {
      */
     public static void main(String[] args) {
         EOG eog = new EOG();
-        eog.oRegister.createOpgave("bæ", "bæ", "bæ", "bæ");
-        eog.oRegister.setBeboer(5, null);
+        
+        //Load db
+        
+        
         eog.menuGUI.setVisible(true);
     }
 
