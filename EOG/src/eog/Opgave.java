@@ -17,13 +17,15 @@ public class Opgave {
     private String description;
     private String dateForTask;
     private String deadlineTime;
+    private String afbudsdato;
     private int idBeboer;
 
-    public Opgave(String title, String description, String dateForTask, String deadlineTime) {
+    public Opgave(String title, String description, String dateForTask, String deadlineTime, String afbudsdato) {
         this.title = title;
         this.description = description;
         this.dateForTask = dateForTask;
         this.deadlineTime = deadlineTime;
+        this.afbudsdato = afbudsdato;
     }
 
     public int getId() {
@@ -73,6 +75,16 @@ public class Opgave {
     public void setIdBeboer(int idBeboer) {
         this.idBeboer = idBeboer;
     }
+
+    public String getAfbudsdato() {
+        return afbudsdato;
+    }
+
+    public void setAfbudsdato(String afbudsdato) {
+        this.afbudsdato = afbudsdato;
+    }
+    
+    
 
     @Override
     public String toString() {

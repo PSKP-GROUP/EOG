@@ -22,8 +22,8 @@ public class OpgaveRegister {
 
     }
     
-    public Opgave createOpgave(String title, String description, String dateForTask, String deadlineTime){
-        Opgave opgave = new Opgave(title, description, dateForTask, deadlineTime);
+    public Opgave createOpgave(String title, String description, String dateForTask, String deadlineTime, String afbudsdato){
+        Opgave opgave = new Opgave(title, description, dateForTask, deadlineTime, afbudsdato);
         insert(opgave);
         return opgave;
     }
@@ -42,6 +42,16 @@ public class OpgaveRegister {
     
     public void setBeboer(int id, int idBeboer) {
         Opgave opgave = getOpgave(id);
+        opgave.setIdBeboer(idBeboer);
+        update(opgave);
+    }
+    
+    public void updateOpgave(int id, String description, String dateForTask, String deadlineTime, String afbudsdato, int idBeboer){
+        Opgave opgave = getOpgave(id);
+        opgave.setDescription(description);
+        opgave.setDateForTask(dateForTask);
+        opgave.setDeadlineTime(deadlineTime);
+        opgave.setAfbudsdato(afbudsdato);
         opgave.setIdBeboer(idBeboer);
         update(opgave);
     }

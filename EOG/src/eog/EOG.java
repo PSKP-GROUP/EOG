@@ -21,6 +21,7 @@ public class EOG {
     private TildelOpgaveGUI toGUI;
     private OpretBeboerGUI obGUI;
     private OpretOpgaveGUI ooGUI;
+    private UpdateOpgaveGUI updateOpgaveGUI;
     private MenuGUI menuGUI;
 
     public EOG() {
@@ -59,7 +60,8 @@ public class EOG {
         toGUI = new TildelOpgaveGUI(oHandler, bHandler);
         obGUI = new OpretBeboerGUI(bHandler);
         ooGUI = new OpretOpgaveGUI(oHandler);
-        menuGUI = new MenuGUI(obGUI, ooGUI, toGUI, ovGUI);
+        updateOpgaveGUI = new UpdateOpgaveGUI(oHandler, bHandler);
+        menuGUI = new MenuGUI(obGUI, ooGUI, toGUI, ovGUI, updateOpgaveGUI);
     }
 
     /**

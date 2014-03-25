@@ -20,8 +20,8 @@ public class OpgaveHandler {
         this.opgaveRegister = opgaveRegister;
     }
     
-    public void createOpgave(String title, String description, String dateForTask, String deadlineTime) {
-        opgaveRegister.createOpgave(title, description, dateForTask, deadlineTime);
+    public void createOpgave(String title, String description, String dateForTask, String deadlineTime, String afbudsdato) {
+        opgaveRegister.createOpgave(title, description, dateForTask, deadlineTime, afbudsdato);
     }
     
     public Opgave getOpgave(int id) {
@@ -30,6 +30,10 @@ public class OpgaveHandler {
     
     public void setBeboer(int id, int idBeboer) {
         opgaveRegister.setBeboer(id, idBeboer);
+    }
+    
+    public void updateOpgave(int id, String description, String dateForTask, String deadlineTime, String afbudsdato, int idBeboer){
+        opgaveRegister.updateOpgave(id, description, dateForTask, deadlineTime, afbudsdato, idBeboer);
     }
     
     public ArrayList<Opgave> getAvailableOpgaver() {

@@ -16,18 +16,20 @@ public class MenuGUI extends javax.swing.JFrame {
     private OpretOpgaveGUI ooGUI;
     private TildelOpgaveGUI toGUI;
     private OpgaveViewGUI ovGUI;
+    private UpdateOpgaveGUI updateOpgaveGUI;
     
     /**
      * Creates new form MenuGUI
      * @param obGUI
      * @param ooGUI
      */
-    public MenuGUI(OpretBeboerGUI obGUI, OpretOpgaveGUI ooGUI, TildelOpgaveGUI toGUI, OpgaveViewGUI ovGUI) {
+    public MenuGUI(OpretBeboerGUI obGUI, OpretOpgaveGUI ooGUI, TildelOpgaveGUI toGUI, OpgaveViewGUI ovGUI, UpdateOpgaveGUI updateOpgaveGUI) {
         initComponents();
         this.obGUI = obGUI;
         this.ooGUI = ooGUI;
         this.toGUI = toGUI;
         this.ovGUI = ovGUI;
+        this.updateOpgaveGUI = updateOpgaveGUI;
     }
 
     /**
@@ -44,6 +46,7 @@ public class MenuGUI extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        RedigereButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -82,15 +85,23 @@ public class MenuGUI extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new java.awt.GridBagConstraints());
 
+        RedigereButton.setText("Redigere");
+        RedigereButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RedigereButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(RedigereButton, new java.awt.GridBagConstraints());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
         );
 
         pack();
@@ -113,7 +124,12 @@ public class MenuGUI extends javax.swing.JFrame {
         ovGUI.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void RedigereButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedigereButtonActionPerformed
+        updateOpgaveGUI.setVisible(true);
+    }//GEN-LAST:event_RedigereButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton RedigereButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

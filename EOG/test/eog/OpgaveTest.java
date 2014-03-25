@@ -48,8 +48,9 @@ public class OpgaveTest {
         String beskrivelse = "Klip haver";
         String datoForOprettelse = "12/09/1991";
         String tidsfrist = "14/09/1991";
+        String afbudsdato = "11/09/1991";
         
-        opgave = opgaveRegister.createOpgave(titel, beskrivelse, datoForOprettelse, tidsfrist);
+        opgave = opgaveRegister.createOpgave(titel, beskrivelse, datoForOprettelse, tidsfrist, afbudsdato);
         Opgave result = opgaveRegister.getOpgave(opgave.getId());
         assertEquals(opgave, result);
     }

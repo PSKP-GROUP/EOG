@@ -44,6 +44,7 @@ public class OpgaveViewGUI extends javax.swing.JFrame {
         title_Label.setText(o.getTitle());
         desc_Label.setText(o.getDescription());
         datething_Label.setText(o.getDateForTask());
+        afbudsdato_Label.setText(o.getAfbudsdato());
         Beboer b = bHandler.getBeboer(o.getIdBeboer());
         if(b != null) {
             beboer_Label.setText(b.toString());
@@ -71,6 +72,9 @@ public class OpgaveViewGUI extends javax.swing.JFrame {
         datething_Label = new javax.swing.JLabel();
         desc_Label = new javax.swing.JLabel();
         title_Label = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        afbudsdato_Label = new javax.swing.JLabel();
+        afmeldButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Vis opgaver");
@@ -106,6 +110,17 @@ public class OpgaveViewGUI extends javax.swing.JFrame {
 
         title_Label.setText("jLabel9");
 
+        jLabel6.setText("Afbudsdato");
+
+        afbudsdato_Label.setText("jLabel7");
+
+        afmeldButton.setText("Afmeld");
+        afmeldButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                afmeldButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,18 +133,24 @@ public class OpgaveViewGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(beboer_Label)
+                            .addComponent(afbudsdato_Label)
                             .addComponent(datething_Label)
                             .addComponent(desc_Label)
-                            .addComponent(title_Label))
-                        .addGap(0, 374, Short.MAX_VALUE)))
+                            .addComponent(title_Label)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(beboer_Label)
+                                .addGap(18, 18, 18)
+                                .addComponent(afmeldButton)))
+                        .addGap(0, 291, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -153,9 +174,14 @@ public class OpgaveViewGUI extends javax.swing.JFrame {
                     .addComponent(datething_Label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(afbudsdato_Label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(beboer_Label))
-                .addContainerGap(244, Short.MAX_VALUE))
+                    .addComponent(beboer_Label)
+                    .addComponent(afmeldButton))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
 
         pack();
@@ -171,7 +197,15 @@ public class OpgaveViewGUI extends javax.swing.JFrame {
         setInfos((Opgave)jComboBox1.getSelectedItem());
     }//GEN-LAST:event_formWindowOpened
 
+    private void afmeldButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_afmeldButtonActionPerformed
+        Opgave opgave = (Opgave)jComboBox1.getSelectedItem();
+        oHandler.setBeboer(opgave.getId(), 0);
+        setInfos(opgave);
+    }//GEN-LAST:event_afmeldButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel afbudsdato_Label;
+    private javax.swing.JButton afmeldButton;
     private javax.swing.JLabel beboer_Label;
     private javax.swing.JLabel datething_Label;
     private javax.swing.JLabel desc_Label;
@@ -181,6 +215,7 @@ public class OpgaveViewGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel title_Label;
     // End of variables declaration//GEN-END:variables
 }

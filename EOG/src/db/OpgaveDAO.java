@@ -35,10 +35,11 @@ public class OpgaveDAO {
             String description = opgave.getDescription();
             String dateForTask = opgave.getDateForTask();
             String deadlineTime = opgave.getDeadlineTime();
+            String afbudsdato = opgave.getAfbudsdato();
             int idBeboer = opgave.getIdBeboer();
 
-            String sql = "INSERT INTO opgave (title, description, datefortask, deadlinetime, idbeboer)"
-                    + "VALUES('" + title + "', '" + description + "', '" + dateForTask + "', '" + deadlineTime + "', "+idBeboer+");";
+            String sql = "INSERT INTO opgave (title, description, datefortask, deadlinetime, afbudsdato, idbeboer)"
+                    + "VALUES('" + title + "', '" + description + "', '" + dateForTask + "', '" + deadlineTime + "', '" + afbudsdato + "', "+idBeboer+");";
             s.execute(sql);
             ResultSet rs = s.executeQuery("SELECT LAST_INSERT_ID();");
             rs.next();
@@ -66,11 +67,12 @@ public class OpgaveDAO {
             String description = opgave.getDescription();
             String dateForTask = opgave.getDateForTask();
             String deadlineTime = opgave.getDeadlineTime();
+            String afbudsdato = opgave.getAfbudsdato();
             int idBeboer = opgave.getIdBeboer();
             
             String sql = "UPDATE opgave SET title='"+title+"', "
                     + "description='"+description+"', datefortask='"+dateForTask+"', "
-                    + "deadlinetime='"+deadlineTime+"', idbeboer='"+idBeboer+"' WHERE idopgave=" + opgave.getId() + ";";
+                    + "deadlinetime='"+deadlineTime+"', '" + afbudsdato + "', idbeboer='"+idBeboer+"' WHERE idopgave=" + opgave.getId() + ";";
             s.execute(sql);
         } catch (SQLException ex) {
             Logger.getLogger(OpgaveDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,9 +101,10 @@ public class OpgaveDAO {
                 String description = rs.getString("description");
                 String dateForTask = rs.getString("datefortask");
                 String deadlineTime = rs.getString("deadlinetime");
+                String afbudsdato = rs.getString("afbudsdato");
                 int idBeboer = rs.getInt("idbeboer");
                 
-                Opgave o = new Opgave(title, description, dateForTask, deadlineTime);
+                Opgave o = new Opgave(title, description, dateForTask, deadlineTime, afbudsdato);
                 o.setId(id);
                 o.setIdBeboer(idBeboer);
                 opgaver.add(o);

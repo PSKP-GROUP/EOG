@@ -40,6 +40,8 @@ public class OpretOpgaveGUI extends javax.swing.JFrame {
         dateForTask_TextField = new javax.swing.JTextField();
         deadlineTime_TextField = new javax.swing.JTextField();
         create_Button = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        Afbudsdato_TextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -49,12 +51,20 @@ public class OpretOpgaveGUI extends javax.swing.JFrame {
 
         jLabel3.setText("DatoForOpgave:");
 
-        jLabel4.setText("Tidsfrist:");
+        jLabel4.setText("Tid:");
 
         create_Button.setText("Opret opgave");
         create_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 create_ButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Afbudsdato:");
+
+        Afbudsdato_TextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Afbudsdato_TextFieldActionPerformed(evt);
             }
         });
 
@@ -65,21 +75,24 @@ public class OpretOpgaveGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 281, Short.MAX_VALUE)
+                        .addComponent(create_Button))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(title_TextField)
                             .addComponent(description_TextField)
                             .addComponent(dateForTask_TextField)
-                            .addComponent(deadlineTime_TextField)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 281, Short.MAX_VALUE)
-                        .addComponent(create_Button)))
+                            .addComponent(deadlineTime_TextField)
+                            .addComponent(Afbudsdato_TextField))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -101,9 +114,13 @@ public class OpretOpgaveGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(deadlineTime_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(Afbudsdato_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(create_Button)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -115,17 +132,23 @@ public class OpretOpgaveGUI extends javax.swing.JFrame {
         String description = description_TextField.getText();
         String dateForTask = dateForTask_TextField.getText();
         String deadlineTime = deadlineTime_TextField.getText();
+        String afbudsdato = Afbudsdato_TextField.getText();
         
-        if(title.isEmpty() || description.isEmpty() || dateForTask.isEmpty() || deadlineTime.isEmpty()) {
+        if(title.isEmpty() || description.isEmpty() || dateForTask.isEmpty() || deadlineTime.isEmpty() || afbudsdato.isEmpty()) {
             System.out.println("UDFYLD ALLE FELTER");
         } else {
-            oHandler.createOpgave(title, description, dateForTask, deadlineTime);
+            oHandler.createOpgave(title, description, dateForTask, deadlineTime, afbudsdato);
             System.out.println("DONE");
             dispose();
         }
     }//GEN-LAST:event_create_ButtonActionPerformed
 
+    private void Afbudsdato_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Afbudsdato_TextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Afbudsdato_TextFieldActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Afbudsdato_TextField;
     private javax.swing.JButton create_Button;
     private javax.swing.JTextField dateForTask_TextField;
     private javax.swing.JTextField deadlineTime_TextField;
@@ -134,6 +157,7 @@ public class OpretOpgaveGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField title_TextField;
     // End of variables declaration//GEN-END:variables
 }
