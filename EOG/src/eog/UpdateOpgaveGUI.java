@@ -39,7 +39,7 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
         BeboerComboBox.setModel(dcbmBeboer);
 
         DefaultComboBoxModel dcbmOpgave = new DefaultComboBoxModel();
-        Iterator<Opgave> iteratorOpgave = opgaveHandler.getAvailableOpgaver().iterator();
+        Iterator<Opgave> iteratorOpgave = opgaveHandler.getOpgaver().iterator();
 
         while (iteratorOpgave.hasNext()) {
             Opgave opgave = iteratorOpgave.next();

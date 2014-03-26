@@ -13,7 +13,7 @@ package eog;
 public class Opgave {
     
     private int id;
-    private String title;
+    private String title; 
     private String description;
     private String dateForTask;
     private String deadlineTime;
@@ -84,8 +84,6 @@ public class Opgave {
         this.afbudsdato = afbudsdato;
     }
     
-    
-
     @Override
     public String toString() {
         return title;

@@ -36,10 +36,9 @@ public class OpgaveDAO {
             String dateForTask = opgave.getDateForTask();
             String deadlineTime = opgave.getDeadlineTime();
             String afbudsdato = opgave.getAfbudsdato();
-            int idBeboer = opgave.getIdBeboer();
 
-            String sql = "INSERT INTO opgave (title, description, datefortask, deadlinetime, afbudsdato, idbeboer)"
-                    + "VALUES('" + title + "', '" + description + "', '" + dateForTask + "', '" + deadlineTime + "', '" + afbudsdato + "', "+idBeboer+");";
+            String sql = "INSERT INTO opgave (title, description, datefortask, deadlinetime, afbudsdato)"
+                    + "VALUES('" + title + "', '" + description + "', '" + dateForTask + "', '" + deadlineTime + "', '" + afbudsdato + "');";
             s.execute(sql);
             ResultSet rs = s.executeQuery("SELECT LAST_INSERT_ID();");
             rs.next();
@@ -62,17 +61,24 @@ public class OpgaveDAO {
         try {
             conn = DBTool.getInstance();
             Statement s = conn.createStatement();
-            
+
             String title = opgave.getTitle();
             String description = opgave.getDescription();
             String dateForTask = opgave.getDateForTask();
             String deadlineTime = opgave.getDeadlineTime();
             String afbudsdato = opgave.getAfbudsdato();
             int idBeboer = opgave.getIdBeboer();
-            
-            String sql = "UPDATE opgave SET title='"+title+"', "
-                    + "description='"+description+"', datefortask='"+dateForTask+"', "
-                    + "deadlinetime='"+deadlineTime+"', '" + afbudsdato + "', idbeboer='"+idBeboer+"' WHERE idopgave=" + opgave.getId() + ";";
+
+            String sql = "";
+            if (idBeboer != 0) {
+                sql = "UPDATE opgave SET title='" + title + "', "
+                        + "description='" + description + "', datefortask='" + dateForTask + "', "
+                        + "deadlinetime='" + deadlineTime + "', afbudsdato='" + afbudsdato + "', idbeboer='" + idBeboer + "' WHERE idopgave=" + opgave.getId() + ";";
+            } else {
+                sql = "UPDATE opgave SET title='" + title + "', "
+                        + "description='" + description + "', datefortask='" + dateForTask + "', "
+                        + "deadlinetime='" + deadlineTime + "', afbudsdato='" + afbudsdato + "', idbeboer=null WHERE idopgave=" + opgave.getId() + ";";
+            }
             s.execute(sql);
         } catch (SQLException ex) {
             Logger.getLogger(OpgaveDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -84,18 +90,18 @@ public class OpgaveDAO {
             }
         }
     }
-    
+
     public static ArrayList<Opgave> getAll() {
         ArrayList<Opgave> opgaver = new ArrayList<>();
-        
+
         try {
             conn = DBTool.getInstance();
             Statement s = conn.createStatement();
-            
+
             String sql = "SELECT * FROM opgave;";
             ResultSet rs = s.executeQuery(sql);
-            
-            while(rs.next()) {
+
+            while (rs.next()) {
                 int id = rs.getInt("idopgave");
                 String title = rs.getString("title");
                 String description = rs.getString("description");
@@ -103,7 +109,7 @@ public class OpgaveDAO {
                 String deadlineTime = rs.getString("deadlinetime");
                 String afbudsdato = rs.getString("afbudsdato");
                 int idBeboer = rs.getInt("idbeboer");
-                
+
                 Opgave o = new Opgave(title, description, dateForTask, deadlineTime, afbudsdato);
                 o.setId(id);
                 o.setIdBeboer(idBeboer);
@@ -119,7 +125,7 @@ public class OpgaveDAO {
                 Logger.getLogger(OpgaveDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
         return opgaver;
     }
 

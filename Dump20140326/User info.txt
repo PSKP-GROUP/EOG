@@ -1,0 +1,4 @@
+Bruger: eog
+Kode: Rollercoaster2
+Rettigheder til eog database: alle
+Roller: Ingen
