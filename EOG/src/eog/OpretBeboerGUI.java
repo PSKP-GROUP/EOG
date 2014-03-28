@@ -6,6 +6,8 @@
 
 package eog;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Patrick
@@ -152,7 +154,10 @@ public class OpretBeboerGUI extends javax.swing.JFrame {
         String role = role_TextField.getText();
         
         if(firstname.isEmpty() || lastname.isEmpty() || address.isEmpty() || phone.isEmpty() || email.isEmpty() || role.isEmpty()) {
-            System.out.println("UDFYLD ALLE FELTER");
+            JOptionPane.showMessageDialog(this,
+                    "Udfyld alle felter",
+                    "....",
+                    JOptionPane.ERROR_MESSAGE);
         } else {
             bHandler.createBeboer(firstname, lastname, address, phone, email, role);
             System.out.println("DONE");

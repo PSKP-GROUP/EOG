@@ -7,6 +7,7 @@ package eog;
 
 import java.util.Iterator;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +20,7 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form UpdateOpgaveGUI
+     *
      * @param opgaveHandler
      * @param beboerHandler
      */
@@ -55,6 +57,7 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
         DatoTF.setText(opgave.getDateForTask());
         TidTF.setText(opgave.getDeadlineTime());
         DescTA.setText(opgave.getDescription());
+        AfbudsdatoTF.setText(opgave.getAfbudsdato());
     }
 
     /**
@@ -115,7 +118,7 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
 
         TidLabel.setText("Tid");
 
-        CancelButton.setText("Cancel");
+        CancelButton.setText("Annuller/Luk/Gå tilbage/Din mor!");
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelButtonActionPerformed(evt);
@@ -142,7 +145,7 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(OpgaveLabel)
                     .addComponent(OpgaveComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BekrivelseLabel)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -160,12 +163,11 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BeboerLabel, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(DatoTF)
-                                .addComponent(TidTF)
-                                .addComponent(BeboerComboBox, 0, 68, Short.MAX_VALUE))
-                            .addComponent(AfbudsdatoTF, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(DatoTF)
+                            .addComponent(TidTF)
+                            .addComponent(BeboerComboBox, 0, 68, Short.MAX_VALUE)
+                            .addComponent(AfbudsdatoTF))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -215,6 +217,7 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -240,18 +243,21 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
         String deadlineTime = TidTF.getText();
         String afbudsdato = AfbudsdatoTF.getText();
         int beboerId = beboer.getId();
-        if(description.isEmpty() || dateForTask.isEmpty() || deadlineTime.isEmpty() || afbudsdato.isEmpty()){
-            System.out.println("Udfyld alle felter");   
-        } else{
-        opgaveHandler.updateOpgave(opgaveId, description, dateForTask, deadlineTime, afbudsdato, beboerId);
+        if (description.isEmpty() || dateForTask.isEmpty() || deadlineTime.isEmpty() || afbudsdato.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Udfyld alle felter",
+                    "....",
+                    JOptionPane.ERROR_MESSAGE);
+        } else {
+            opgaveHandler.updateOpgave(opgaveId, description, dateForTask, deadlineTime, afbudsdato, beboerId);
+            JOptionPane.showMessageDialog(this,
+                    "Opgaven blev gemt");
         }
     }//GEN-LAST:event_GemButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AfbudsdatoTF;

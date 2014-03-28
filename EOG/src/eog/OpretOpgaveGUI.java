@@ -6,6 +6,8 @@
 
 package eog;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Patrick
@@ -135,7 +137,10 @@ public class OpretOpgaveGUI extends javax.swing.JFrame {
         String afbudsdato = Afbudsdato_TextField.getText();
         
         if(title.isEmpty() || description.isEmpty() || dateForTask.isEmpty() || deadlineTime.isEmpty() || afbudsdato.isEmpty()) {
-            System.out.println("UDFYLD ALLE FELTER");
+            JOptionPane.showMessageDialog(this,
+                    "Udfyld alle felter",
+                    "....",
+                    JOptionPane.ERROR_MESSAGE);
         } else {
             oHandler.createOpgave(title, description, dateForTask, deadlineTime, afbudsdato);
             System.out.println("DONE");
