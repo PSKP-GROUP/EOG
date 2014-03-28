@@ -90,8 +90,8 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Rediger Opgave");
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
             }
         });
 
@@ -118,7 +118,7 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
 
         TidLabel.setText("Tid");
 
-        CancelButton.setText("Annuller/Luk/Gå tilbage/Din mor!");
+        CancelButton.setText("Annuller");
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelButtonActionPerformed(evt);
@@ -145,7 +145,7 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(OpgaveLabel)
                     .addComponent(OpgaveComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BekrivelseLabel)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -220,11 +220,6 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        populateLists();
-        showInfo((Opgave) OpgaveComboBox.getSelectedItem());
-    }//GEN-LAST:event_formWindowOpened
-
     private void OpgaveComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpgaveComboBoxActionPerformed
         Opgave opgave = (Opgave) OpgaveComboBox.getSelectedItem();
         showInfo(opgave);
@@ -254,6 +249,11 @@ public class UpdateOpgaveGUI extends javax.swing.JFrame {
                     "Opgaven blev gemt");
         }
     }//GEN-LAST:event_GemButtonActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        populateLists();
+        showInfo((Opgave) OpgaveComboBox.getSelectedItem());
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

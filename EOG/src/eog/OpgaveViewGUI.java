@@ -80,8 +80,8 @@ public class OpgaveViewGUI extends javax.swing.JFrame {
         setTitle("Vis opgaver");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
             }
         });
 
@@ -192,16 +192,16 @@ public class OpgaveViewGUI extends javax.swing.JFrame {
         setInfos((Opgave)jComboBox1.getSelectedItem());
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        populateList();
-        setInfos((Opgave)jComboBox1.getSelectedItem());
-    }//GEN-LAST:event_formWindowOpened
-
     private void afmeldButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_afmeldButtonActionPerformed
         Opgave opgave = (Opgave)jComboBox1.getSelectedItem();
         oHandler.setBeboer(opgave.getId(), 0);
         setInfos(opgave);
     }//GEN-LAST:event_afmeldButtonActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        populateList();
+        setInfos((Opgave)jComboBox1.getSelectedItem());
+    }//GEN-LAST:event_formWindowActivated
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel afbudsdato_Label;

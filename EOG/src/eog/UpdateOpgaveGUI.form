@@ -10,7 +10,7 @@
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <Events>
-    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+    <EventHandler event="windowActivated" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowActivated"/>
   </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -48,7 +48,7 @@
                       <Component id="OpgaveLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="OpgaveComboBox" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                  <EmptySpace pref="142" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="BekrivelseLabel" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
@@ -198,7 +198,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="CancelButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Annuller/Luk/G&#xe5; tilbage/Din mor!"/>
+            <Property name="text" type="java.lang.String" value="Annuller"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelButtonActionPerformed"/>
